@@ -6,6 +6,7 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 
 require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/basic_spam_check.php';
 
 $config = [
     'ALLOW_ORIGIN' => getenv('ALLOW_ORIGIN'),
@@ -68,6 +69,11 @@ try {
 } catch (Exception $e) {
     http_response_code(400);
     exit("REPLY_TO '{$config['REPLY_TO']}' is not a valid/supported address");
+}
+
+if (is_possible_spam($_POST)) {
+    http_response_code(400);
+    exit('Spam detected');
 }
 
 // request is valid
