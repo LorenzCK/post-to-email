@@ -23,7 +23,7 @@ Read on!
 
 ### 1. Deploy the container
 
-Run the `matthiasmullie/post-to-email` Docker container in whatever [configuration](#configuration) makes sense.
+Run the `lorenzck/post-to-email` Docker container in whatever [configuration](#configuration) makes sense.
 
 Below are detailed instructions to run this in a couple of different ways - pick whichever makes most sense for your use-case:
 

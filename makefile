@@ -1,5 +1,10 @@
+IMAGE := lorenzck/post-to-email
+override VERSION := $(shell git describe --tags --exact-match --match 'v[0-9]*' HEAD 2>/dev/null)
+
 publish:
-	docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag matthiasmullie/post-to-email .
+	@test -n "$(VERSION)" || { echo "HEAD must have a version tag (for example, v1.1)" >&2; exit 1; }
+	@test -z "$$(git status --porcelain)" || { echo "Working tree must be clean before publishing" >&2; exit 1; }
+	docker buildx build --push --platform linux/amd64 --tag $(IMAGE):$(VERSION) --tag $(IMAGE):latest .
 
 test:
 	docker build -t post-to-email .

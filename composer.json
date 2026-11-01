@@ -1,5 +1,5 @@
 {
-    "name": "matthiasmullie/post-to-email",
+    "name": "lorenzck/post-to-email",
     "type": "project",
     "description": "Post to email",
     "keywords": ["post", "email", "contact form", "static website"],
@@ -10,6 +10,10 @@
             "homepage": "https://www.mullie.eu",
             "email": "post-to-email@mullie.eu",
             "role": "Developer"
+        },
+        {
+            "name": "Lorenz Cuno Klopfenstein",
+            "homepage": "https://lorenz.klopfenste.in"
         }
     ],
     "require": {
